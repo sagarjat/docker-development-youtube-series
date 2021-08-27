@@ -18,6 +18,5 @@ stages:
   - job: Build
     steps:
     - script:
-        docker system prune -f
         chmod +x abc.sh
         ./abc.sh
