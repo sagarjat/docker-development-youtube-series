@@ -3,7 +3,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- '*/develop'
+- master
 
 resources:
 - repo: self
@@ -19,9 +19,5 @@ stages:
     steps:
     - script:
         docker system prune -f
-        cd docker/
-        chmod +x docker_build_hybris.sh
-        chmod +x lint_dockerfile.sh
-        export BRANCH=$(echo $BRANCH | sed -r 's/[/]+/-/g')
-        ./docker_build_hybris.sh bb-hybris ${BRANCH}
-        rm -rf bb-hybris/hybris-artifacts/ 
+        chmod +x abc.sh
+        ./abc.sh
