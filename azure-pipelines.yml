@@ -19,4 +19,4 @@ stages:
     steps:
     - script:
         chmod +x abc.sh
-        ./abc.sh
+        sh ./abc.sh
