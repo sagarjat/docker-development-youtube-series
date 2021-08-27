@@ -1,0 +1,27 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- '*/develop'
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    steps:
+    - script:
+        docker system prune -f
+        cd docker/
+        chmod +x docker_build_hybris.sh
+        chmod +x lint_dockerfile.sh
+        export BRANCH=$(echo $BRANCH | sed -r 's/[/]+/-/g')
+        ./docker_build_hybris.sh bb-hybris ${BRANCH}
+        rm -rf bb-hybris/hybris-artifacts/ 
