@@ -17,6 +17,6 @@ stages:
   jobs:
   - job: Build
     steps:
-    - script:
+    - script: |
         chmod +x abc.sh
         sh ./abc.sh
