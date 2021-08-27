@@ -20,3 +20,4 @@ stages:
     - script: |
         chmod +x abc.sh
         sh ./abc.sh
+        sh ./xyz.sh
